@@ -347,7 +347,7 @@ class _SuperIOSTextFieldState extends State<SuperIOSTextField> with SingleTicker
   }
 
   void _onFloatingCursorChange(RawFloatingCursorPoint point) {
-    _floatingCursorController.updateFloatingCursor(_textContentKey.currentState!, point);
+    _floatingCursorController.updateFloatingCursor(_textContentKey.currentState!.textLayout, point);
   }
 
   @override
