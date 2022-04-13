@@ -141,7 +141,7 @@ class _SuperIOSTextFieldState extends State<SuperIOSTextField> with SingleTicker
   final _textFieldLayerLink = LayerLink();
   final _textContentLayerLink = LayerLink();
   final _scrollKey = GlobalKey<IOSTextFieldTouchInteractorState>();
-  final _textContentKey = GlobalKey();
+  final _textContentKey = GlobalKey<ProseTextState>();
 
   late FocusNode _focusNode;
 
@@ -346,7 +346,7 @@ class _SuperIOSTextFieldState extends State<SuperIOSTextField> with SingleTicker
   }
 
   void _onFloatingCursorChange(RawFloatingCursorPoint point) {
-    _floatingCursorController.updateFloatingCursor((_textContentKey.currentState! as ProseTextBlock).textLayout, point);
+    _floatingCursorController.updateFloatingCursor(_textContentKey.currentState!.textLayout, point);
   }
 
   @override
