@@ -146,7 +146,7 @@ class TapSequenceGestureRecognizer extends GestureRecognizer {
     _stopTapTimer();
     final _TapTracker tracker = _TapTracker(
       event: event,
-      entry: GestureBinding.instance!.gestureArena.add(event.pointer, this),
+      entry: GestureBinding.instance.gestureArena.add(event.pointer, this),
       tapMinTime: kTapMinTime,
     );
     _trackers[event.pointer] = tracker;
@@ -266,7 +266,7 @@ class TapSequenceGestureRecognizer extends GestureRecognizer {
       final _TapTracker tracker = _secondTap!;
       _secondTap = null;
       _reject(tracker);
-      GestureBinding.instance!.gestureArena.release(tracker.pointer);
+      GestureBinding.instance.gestureArena.release(tracker.pointer);
     }
     if (_firstTap != null) {
       if (_trackers.isNotEmpty) {
@@ -277,7 +277,7 @@ class TapSequenceGestureRecognizer extends GestureRecognizer {
       final _TapTracker tracker = _firstTap!;
       _firstTap = null;
       _reject(tracker);
-      GestureBinding.instance!.gestureArena.release(tracker.pointer);
+      GestureBinding.instance.gestureArena.release(tracker.pointer);
     }
     _clearTrackers();
   }
@@ -285,7 +285,7 @@ class TapSequenceGestureRecognizer extends GestureRecognizer {
   void _registerFirstTap(PointerEvent event, _TapTracker tracker) {
     _startTapTimer();
     _checkUp(event, tracker.initialButtons);
-    GestureBinding.instance!.gestureArena.hold(tracker.pointer);
+    GestureBinding.instance.gestureArena.hold(tracker.pointer);
     // Note, order is important below in order for the clear -> reject logic to
     // work properly.
     _freezeTracker(tracker);
@@ -297,7 +297,7 @@ class TapSequenceGestureRecognizer extends GestureRecognizer {
   void _registerSecondTap(PointerEvent event, _TapTracker tracker) {
     _startTapTimer();
     _checkUp(event, tracker.initialButtons);
-    GestureBinding.instance!.gestureArena.hold(tracker.pointer);
+    GestureBinding.instance.gestureArena.hold(tracker.pointer);
     // Note, order is important below in order for the clear -> reject logic to
     // work properly.
     _freezeTracker(tracker);
@@ -419,7 +419,7 @@ class _TapTracker {
   void startTrackingPointer(PointerRoute route, Matrix4 transform) {
     if (!_isTrackingPointer) {
       _isTrackingPointer = true;
-      GestureBinding.instance!.pointerRouter
+      GestureBinding.instance.pointerRouter
           .addRoute(pointer, route, transform);
     }
   }
@@ -427,7 +427,7 @@ class _TapTracker {
   void stopTrackingPointer(PointerRoute route) {
     if (_isTrackingPointer) {
       _isTrackingPointer = false;
-      GestureBinding.instance!.pointerRouter.removeRoute(pointer, route);
+      GestureBinding.instance.pointerRouter.removeRoute(pointer, route);
     }
   }
 

@@ -219,7 +219,7 @@ class _SuperIOSTextFieldState extends State<SuperIOSTextField> with SingleTicker
     }
 
     if (widget.showDebugPaint != oldWidget.showDebugPaint) {
-      WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
         _rebuildHandles();
       });
     }
@@ -235,7 +235,7 @@ class _SuperIOSTextFieldState extends State<SuperIOSTextField> with SingleTicker
     // available upon Hot Reload. Accessing it results in an exception.
     _removeEditingOverlayControls();
 
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _showHandles();
     });
   }
@@ -244,7 +244,7 @@ class _SuperIOSTextFieldState extends State<SuperIOSTextField> with SingleTicker
   void dispose() {
     _removeEditingOverlayControls();
 
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       // Dispose after the current frame so that other widgets have
       // time to remove their listeners.
       _editingOverlayController.dispose();
@@ -254,7 +254,7 @@ class _SuperIOSTextFieldState extends State<SuperIOSTextField> with SingleTicker
       ..removeListener(_onTextOrSelectionChange)
       ..onIOSFloatingCursorChange = null;
     if (widget.textController == null) {
-      WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
         // Dispose after the current frame so that other widgets have
         // time to remove their listeners.
         _textEditingController.dispose();
